@@ -1,0 +1,19 @@
+<div class="container">
+  <h1>Add New Product</h1>
+
+  <form (ngSubmit)="onSave()" enctype="multipart/form-data">
+    <input type="text" [(ngModel)]="product.name" name="name" placeholder="Product Name" required>
+
+    <input type="number" [(ngModel)]="product.price" name="price" placeholder="Product Price" step="0.01" required>
+
+    <textarea [(ngModel)]="product.description" name="description" placeholder="Product Description" rows="5" required></textarea>
+
+    <label>Upload Image:</label>
+    <input type="file" (change)="onFileSelected($event)" required>
+
+    <div class="buttons">
+      <button type="submit">Save Product</button>
+      <button type="button" (click)="goBack()">Cancel</button>
+    </div>
+  </form>
+</div>

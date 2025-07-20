@@ -1,0 +1,22 @@
+<div class="container">
+  <h1>Update Product</h1>
+
+  <form (ngSubmit)="onUpdate()" enctype="multipart/form-data">
+    <div class="image-box">
+      <label>Current Image:</label><br>
+      <img [src]="previewUrl || product.imageUrl || 'https://via.placeholder.com/200'" alt="Product Image">
+      <input type="file" (change)="onFileSelected($event)">
+    </div>
+
+    <input type="text" [(ngModel)]="product.name" name="name" placeholder="Product Name" required>
+
+    <input type="number" [(ngModel)]="product.price" name="price" placeholder="Product Price" required>
+
+    <textarea [(ngModel)]="product.description" name="description" placeholder="Product Description" rows="5" required></textarea>
+
+    <div class="buttons">
+      <button type="submit">Save Changes</button>
+      <button type="button" (click)="goBack()">Cancel</button>
+    </div>
+  </form>
+</div>
